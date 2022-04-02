@@ -1,0 +1,133 @@
+---
+title: "American obesity and Multiple Indicators"
+author: "Vincent Yu"
+date: "4/1/2022"
+output: pdf_document
+abstract: "The obesity rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the obesity rate of American. The reason..., The effect of obesity..."
+bibliography: ref_list_final.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#tinytex::install_tinytex()
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(kableExtra)
+library(knitr)
+library(haven)
+library(usmap)
+library(car)
+library(broom)
+```
+# introduction
+The obesity rate of a country is vital for society and plays such an indisputably important role in human life. The rising obesity rates in developed countries have brought continuous challenges to their policymakers. The United States of America, as one of the most powerful nations around the world, has been facing the highest obesity rate overall OECD Countries in the past decades(@OECD).Over 36.2% of population is obese in 2017. Further investigation into what causes such a high rate and how the obesity rate impacts individuals’ lives is urgent.\
+A regular daily routine, including sleep and exercise, are essential to a healthy life(@exercise). We all know that energy is counted in calories. Too many calories in but fewer calories burned will cause energy imbalance and lead to obesity. Highly active and sedentary individuals have a significant difference in their weight if we remove other factors and group them appropriately. Mental health is straightly related to one’s obesity as well. Individuals with PTSD were 5% less likely to have healthy diets(@mental). In the long run, it will destroy various body functions, resulting in the accumulation of fat in the body, thereby causing obesity. Besides, pregnancy for women and alcohol for men are also very strong relevance to the obesity rate. The recent data and analysis from the mentioned factors conducted in America remain inadequate.\ 
+
+This paper examines...
+The remaining part of the paper was organized into ...
+
+
+
+\newpage
+# data
+Should I keep the model with only 2 factors and show it on a graph or fit a model with 7 or 8 factors just like sta302 did?
+Here is some work.
+
+```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+tmp <- read_csv("tmp.csv")
+data_full <- read.csv("data_full.csv")
+states <- read.csv("state_births.csv")
+```
+```{r}
+head(data_full)
+```
+
+
+
+
+" _BMI5
+ _BMI5CAT
+ 
+SEXVAR
+INCOME2
+EDUCA
+SLEPTIM1
+MENTHLTH
+GENHLTH
+EXERANY2
+ALCDAY5
+AVEDRNK3" \
+hope to get some help on how to do the model QAQ.\
+```{r, echo = FALSE}
+mod_full<- lm(`X_BMI5`~SLEPTIM1+EXERANY2, data = data_full)
+summary(mod_full)
+vif(mod_full)
+augment(mod_full,
+          data = data_full)
+```
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+ 
+data_full %>% filter(SLEPTIM1 < 24 & EXERANY2 <7)%>% 
+  mutate(EXERANY2 = case_when(EXERANY2 == 1 ~"yes",
+                              EXERANY2 == 2 ~"no"))%>%
+ggplot(aes(x = SLEPTIM1,y=`X_BMI5`, color = EXERANY2)) + geom_point() +
+geom_smooth(method = "lm", se = FALSE) + theme_classic() +
+labs(x = "sleephour", y = "_BMI", title = "Relationship between the Age (in years) of respondent and
+     Average diastolic blood pressure value in different sex")
+data_full %>% filter(SLEPTIM1 < 12 & EXERANY2 <7)%>% 
+  mutate(EXERANY2 = case_when(EXERANY2 == 1 ~"yes",
+                              EXERANY2 == 2 ~"no"))%>%
+ggplot(aes(x = SLEPTIM1,y=`X_BMI5`, color = EXERANY2)) + geom_point() +
+geom_smooth(method = "lm", se = FALSE) + theme_classic() +
+labs(x = "sleephour", y = "_BMI", title = "Relationship between the Age (in years) of respondent and
+     Average diastolic blood pressure value in different sex")
+```
+## full model
+
+```{r, echo = FALSE}
+c1<- plot(data_full$`X_BMI5` ~ fitted(mod_full), ylab="Y-hat", xlab= "Y", main = "Y v.s. Y-hat")
+```
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+pairs(~SEXVAR+INCOME2+EDUCA+SLEPTIM1+MENTHLTH+GENHLTH+EXERANY2+AVEDRNK3, data = data_full)
+```
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+par(mfrow = c(2,4))
+res <- resid(mod_full)
+plot(res ~ fitted(mod_full), main = " Res v.s. Fitted", xlab= "Fitted", ylab= "res.")
+summary(powerTransform(cbind(data_full$`X_BMI5`,
+data_full$SEXVAR,
+data_full$INCOME2,
+data_full$EDUCA,
+data_full$SLEPTIM1,
+data_full$MENTHLTH,
+data_full$GENHLTH,
+data_full$EXERANY2,
+data_full$AVEDRNK3)))
+```
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+data_full_mutated <-data_full %>% mutate(`X_BMI5` =  `X_BMI5`^(-.5), SEXVAR = SEXVAR^(-.5), INCOME2 = INCOME2^(-.33), EDUCA = EDUCA^(2), MENTHLTH = MENTHLTH^(0.66), GENHLTH = GENHLTH^(0.33), EXERANY2 = EXERANY2^(-8), AVEDRNK3 = AVEDRNK3^(-1))
+mod_full_mutated<- lm(`X_BMI5`~SEXVAR+SLEPTIM1+GENHLTH+EXERANY2+INCOME2+EDUCA+MENTHLTH+AVEDRNK3, data = data_full_mutated)
+summary(mod_full_mutated)
+vif(mod_full_mutated)
+```
+
+DIABETE4
+MARITAL
+CVDINFR4\
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+tmp1 <- tmp%>% group_by(`_STATE`)%>%summarise( avg_OBES = mean(`_BMI5CAT`))
+colnames(tmp1) <- c("state_num", "avg_OBES")
+colnames(states) <- c("state_num", "state")
+state_obes <- merge(tmp1,states,by=c("state_num"))
+p <- plot_usmap(data = state_obes, values = "avg_OBES", color = "red", labels=TRUE) + 
+  scale_fill_continuous(low = "white", high = "red", 
+                         name = "percent change of birth rate", label = scales::comma) + 
+  theme(legend.position = "right") + 
+  theme(panel.background = element_rect(colour = "black")) + 
+  labs(title = "average obesity in each state")
+p$layers[[2]]$aes_params$size <- 3
+print(p)
+```
+Centers for Disease Control and Prevention (CDC). Behavioral Risk Factor Surveillance System Survey Data. Atlanta, Georgia: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention, [appropriate data year or years].
