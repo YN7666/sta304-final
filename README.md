@@ -1,5 +1,8 @@
 1. Overview
+<<<<<<< HEAD
 This paper is about American obesity and Multiple Indicators and is demonstrated by a few graph and a model.
+=======
+>>>>>>> 4495022f52ce520374295949736ed795492ccf32
 The code in this replication packages constructs our analysis using R Studio.  The following packages is needed before running the code.
 library(tidyverse)
 library(ggplot2)
@@ -12,8 +15,13 @@ library(usmap)
 library(car)
 library(broom)
 
+<<<<<<< HEAD
 graph:
 the map of american with BMI in each state
+=======
+
+the map of american with BMI by states
+>>>>>>> 4495022f52ce520374295949736ed795492ccf32
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 tmp <-amobesity%>% select(`_BMI5CAT`, `_STATE`) %>% filter( !is.na(`_BMI5CAT`))
 tmp1 <- tmp%>% group_by(`_STATE`)%>%summarise( avg_OBES = mean(`_BMI5CAT`))
@@ -29,7 +37,10 @@ p <- plot_usmap(data = state_obes, values = "avg_OBES", color = "red", labels=TR
 p$layers[[2]]$aes_params$size <- 3
 print(p)
 ```
+<<<<<<< HEAD
 There will be more plots in the future.
+=======
+>>>>>>> 4495022f52ce520374295949736ed795492ccf32
 
 model. The bmi is the response and the sleeping time and exercise experience.
 ```{r, echo = FALSE}
@@ -56,4 +67,8 @@ ggplot(aes(x = SLEPTIM1,y=`_BMI5`, color = EXERANY2)) + geom_point() +
 geom_smooth(method = "lm", se = FALSE) + theme_classic() +
 labs(x = "sleephour", y = "_BMI", title = "Relationship between the Age (in years) of respondent and
      Average diastolic blood pressure value in different sex")
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 4495022f52ce520374295949736ed795492ccf32
