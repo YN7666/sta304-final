@@ -12,7 +12,7 @@ library(car)
 library(broom)
 
 
-the map of american with BMI 
+the map of american with BMI by states
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 tmp <-amobesity%>% select(`_BMI5CAT`, `_STATE`) %>% filter( !is.na(`_BMI5CAT`))
 tmp1 <- tmp%>% group_by(`_STATE`)%>%summarise( avg_OBES = mean(`_BMI5CAT`))
