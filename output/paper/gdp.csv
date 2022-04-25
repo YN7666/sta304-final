@@ -1,0 +1,313 @@
+GeoFips,GeoName,LineCode,Description,X2020
+0,United States,1,All industry total,18384687
+0,United States,12,Manufacturing,2167789
+0,United States,50,"Finance, insurance, real estate, rental, and leasing",3568637
+0,United States,59,Professional and business services,2483914
+0,United States,68,"Educational services, health care, and social assistance",1560450
+0,United States,83,Government and government enterprises,2195488
+1,Alabama,1,All industry total,196906.1
+1,Alabama,12,Manufacturing,34674.5
+1,Alabama,50,"Finance, insurance, real estate, rental, and leasing",31258.2
+1,Alabama,59,Professional and business services,20875.8
+1,Alabama,68,"Educational services, health care, and social assistance",15669.4
+1,Alabama,83,Government and government enterprises,31655.3
+2,Alaska,1,All industry total,50161
+2,Alaska,12,Manufacturing,1444.2
+2,Alaska,50,"Finance, insurance, real estate, rental, and leasing",5456.4
+2,Alaska,59,Professional and business services,2811.4
+2,Alaska,68,"Educational services, health care, and social assistance",3934.6
+2,Alaska,83,Government and government enterprises,9719.1
+4,Arizona,1,All industry total,320550.6
+4,Arizona,12,Manufacturing,30769.8
+4,Arizona,50,"Finance, insurance, real estate, rental, and leasing",68700.5
+4,Arizona,59,Professional and business services,38414.2
+4,Arizona,68,"Educational services, health care, and social assistance",31716.7
+4,Arizona,83,Government and government enterprises,38172.7
+5,Arkansas,1,All industry total,114943.5
+5,Arkansas,12,Manufacturing,17688.2
+5,Arkansas,50,"Finance, insurance, real estate, rental, and leasing",17352.1
+5,Arkansas,59,Professional and business services,13673.6
+5,Arkansas,68,"Educational services, health care, and social assistance",10654.1
+5,Arkansas,83,Government and government enterprises,14164.2
+6,California,1,All industry total,2663665.9
+6,California,12,Manufacturing,356455.9
+6,California,50,"Finance, insurance, real estate, rental, and leasing",447066.4
+6,California,59,Professional and business services,396828.8
+6,California,68,"Educational services, health care, and social assistance",196296
+6,California,83,Government and government enterprises,286167.4
+8,Colorado,1,All industry total,346011.3
+8,Colorado,12,Manufacturing,23701.8
+8,Colorado,50,"Finance, insurance, real estate, rental, and leasing",65086.2
+8,Colorado,59,Professional and business services,55285.2
+8,Colorado,68,"Educational services, health care, and social assistance",23851.7
+8,Colorado,83,Government and government enterprises,40106.3
+9,Connecticut,1,All industry total,235888.6
+9,Connecticut,12,Manufacturing,26928.4
+9,Connecticut,50,"Finance, insurance, real estate, rental, and leasing",65432.2
+9,Connecticut,59,Professional and business services,30533.7
+9,Connecticut,68,"Educational services, health care, and social assistance",24967.4
+9,Connecticut,83,Government and government enterprises,22510.9
+10,Delaware,1,All industry total,62056.2
+10,Delaware,12,Manufacturing,4941.4
+10,Delaware,50,"Finance, insurance, real estate, rental, and leasing",25643.5
+10,Delaware,59,Professional and business services,7763.1
+10,Delaware,68,"Educational services, health care, and social assistance",5098.6
+10,Delaware,83,Government and government enterprises,6437.2
+11,District of Columbia,1,All industry total,122342.1
+11,District of Columbia,12,Manufacturing,224.4
+11,District of Columbia,50,"Finance, insurance, real estate, rental, and leasing",14732.3
+11,District of Columbia,59,Professional and business services,29905.3
+11,District of Columbia,68,"Educational services, health care, and social assistance",9412.9
+11,District of Columbia,83,Government and government enterprises,41555.6
+12,Florida,1,All industry total,944000.8
+12,Florida,12,Manufacturing,51863.1
+12,Florida,50,"Finance, insurance, real estate, rental, and leasing",231042.9
+12,Florida,59,Professional and business services,130033.1
+12,Florida,68,"Educational services, health care, and social assistance",89253.2
+12,Florida,83,Government and government enterprises,96127.2
+13,Georgia,1,All industry total,536693
+13,Georgia,12,Manufacturing,49681.8
+13,Georgia,50,"Finance, insurance, real estate, rental, and leasing",112497.7
+13,Georgia,59,Professional and business services,73554.2
+13,Georgia,68,"Educational services, health care, and social assistance",40427
+13,Georgia,83,Government and government enterprises,59935.8
+15,Hawaii,1,All industry total,70625.2
+15,Hawaii,12,Manufacturing,1439
+15,Hawaii,50,"Finance, insurance, real estate, rental, and leasing",15476.2
+15,Hawaii,59,Professional and business services,6655.3
+15,Hawaii,68,"Educational services, health care, and social assistance",6486.6
+15,Hawaii,83,Government and government enterprises,15589.4
+16,Idaho,1,All industry total,73655.4
+16,Idaho,12,Manufacturing,8454.7
+16,Idaho,50,"Finance, insurance, real estate, rental, and leasing",12597
+16,Idaho,59,Professional and business services,8467.5
+16,Idaho,68,"Educational services, health care, and social assistance",6455.7
+16,Idaho,83,Government and government enterprises,8945
+17,Illinois,1,All industry total,737643.6
+17,Illinois,12,Manufacturing,99933.6
+17,Illinois,50,"Finance, insurance, real estate, rental, and leasing",161351.3
+17,Illinois,59,Professional and business services,107989.9
+17,Illinois,68,"Educational services, health care, and social assistance",63224.9
+17,Illinois,83,Government and government enterprises,69108.8
+18,Indiana,1,All industry total,329863.3
+18,Indiana,12,Manufacturing,90345.6
+18,Indiana,50,"Finance, insurance, real estate, rental, and leasing",51056.3
+18,Indiana,59,Professional and business services,29972
+18,Indiana,68,"Educational services, health care, and social assistance",30781.4
+18,Indiana,83,Government and government enterprises,30744.7
+19,Iowa,1,All industry total,169420.3
+19,Iowa,12,Manufacturing,29257.8
+19,Iowa,50,"Finance, insurance, real estate, rental, and leasing",39979.3
+19,Iowa,59,Professional and business services,12115.3
+19,Iowa,68,"Educational services, health care, and social assistance",12039
+19,Iowa,83,Government and government enterprises,18795.9
+20,Kansas,1,All industry total,156770.1
+20,Kansas,12,Manufacturing,25222.8
+20,Kansas,50,"Finance, insurance, real estate, rental, and leasing",30199.6
+20,Kansas,59,Professional and business services,17435.1
+20,Kansas,68,"Educational services, health care, and social assistance",12294.2
+20,Kansas,83,Government and government enterprises,18556.5
+21,Kentucky,1,All industry total,185535.1
+21,Kentucky,12,Manufacturing,34981.4
+21,Kentucky,50,"Finance, insurance, real estate, rental, and leasing",29865.8
+21,Kentucky,59,Professional and business services,16815
+21,Kentucky,68,"Educational services, health care, and social assistance",17424.3
+21,Kentucky,83,Government and government enterprises,23651.2
+22,Louisiana,1,All industry total,222296.8
+22,Louisiana,12,Manufacturing,48750.6
+22,Louisiana,50,"Finance, insurance, real estate, rental, and leasing",34152.4
+22,Louisiana,59,Professional and business services,18524.9
+22,Louisiana,68,"Educational services, health care, and social assistance",18792.6
+22,Louisiana,83,Government and government enterprises,24204.7
+23,Maine,1,All industry total,58757.3
+23,Maine,12,Manufacturing,5830.2
+23,Maine,50,"Finance, insurance, real estate, rental, and leasing",13279.2
+23,Maine,59,Professional and business services,6892.1
+23,Maine,68,"Educational services, health care, and social assistance",7721
+23,Maine,83,Government and government enterprises,7499.4
+24,Maryland,1,All industry total,353052.5
+24,Maryland,12,Manufacturing,23091.6
+24,Maryland,50,"Finance, insurance, real estate, rental, and leasing",68805.9
+24,Maryland,59,Professional and business services,55703.4
+24,Maryland,68,"Educational services, health care, and social assistance",31902.7
+24,Maryland,83,Government and government enterprises,74752.5
+25,Massachusetts,1,All industry total,498577
+25,Massachusetts,12,Manufacturing,51305.9
+25,Massachusetts,50,"Finance, insurance, real estate, rental, and leasing",106242.5
+25,Massachusetts,59,Professional and business services,103569.1
+25,Massachusetts,68,"Educational services, health care, and social assistance",58945.3
+25,Massachusetts,83,Government and government enterprises,46755.9
+26,Michigan,1,All industry total,445682.6
+26,Michigan,12,Manufacturing,81588.9
+26,Michigan,50,"Finance, insurance, real estate, rental, and leasing",81611.1
+26,Michigan,59,Professional and business services,62639.3
+26,Michigan,68,"Educational services, health care, and social assistance",41294.6
+26,Michigan,83,Government and government enterprises,44469.5
+27,Minnesota,1,All industry total,326635.6
+27,Minnesota,12,Manufacturing,47251
+27,Minnesota,50,"Finance, insurance, real estate, rental, and leasing",63385.8
+27,Minnesota,59,Professional and business services,46908.4
+27,Minnesota,68,"Educational services, health care, and social assistance",34094.3
+27,Minnesota,83,Government and government enterprises,29874.7
+28,Mississippi,1,All industry total,99667.5
+28,Mississippi,12,Manufacturing,15983.6
+28,Mississippi,50,"Finance, insurance, real estate, rental, and leasing",15805.9
+28,Mississippi,59,Professional and business services,7424.3
+28,Mississippi,68,"Educational services, health care, and social assistance",8463.4
+28,Mississippi,83,Government and government enterprises,16804.2
+29,Missouri,1,All industry total,282654.2
+29,Missouri,12,Manufacturing,34384.4
+29,Missouri,50,"Finance, insurance, real estate, rental, and leasing",53879.2
+29,Missouri,59,Professional and business services,39863.3
+29,Missouri,68,"Educational services, health care, and social assistance",29305.4
+29,Missouri,83,Government and government enterprises,32193.6
+30,Montana,1,All industry total,46158.1
+30,Montana,12,Manufacturing,3397.8
+30,Montana,50,"Finance, insurance, real estate, rental, and leasing",8128.7
+30,Montana,59,Professional and business services,3791.2
+30,Montana,68,"Educational services, health care, and social assistance",4792.6
+30,Montana,83,Government and government enterprises,6481.1
+31,Nebraska,1,All industry total,117664.9
+31,Nebraska,12,Manufacturing,13197
+31,Nebraska,50,"Finance, insurance, real estate, rental, and leasing",24629.2
+31,Nebraska,59,Professional and business services,11323.3
+31,Nebraska,68,"Educational services, health care, and social assistance",9262.3
+31,Nebraska,83,Government and government enterprises,13591.9
+32,Nevada,1,All industry total,145219.1
+32,Nevada,12,Manufacturing,7905.1
+32,Nevada,50,"Finance, insurance, real estate, rental, and leasing",29980
+32,Nevada,59,Professional and business services,17265.5
+32,Nevada,68,"Educational services, health care, and social assistance",10547.7
+32,Nevada,83,Government and government enterprises,15901.2
+33,New Hampshire,1,All industry total,75543.1
+33,New Hampshire,12,Manufacturing,8607.1
+33,New Hampshire,50,"Finance, insurance, real estate, rental, and leasing",16700.2
+33,New Hampshire,59,Professional and business services,10745.1
+33,New Hampshire,68,"Educational services, health care, and social assistance",8744.4
+33,New Hampshire,83,Government and government enterprises,7516.5
+34,New Jersey,1,All industry total,535794.9
+34,New Jersey,12,Manufacturing,54056.3
+34,New Jersey,50,"Finance, insurance, real estate, rental, and leasing",113660
+34,New Jersey,59,Professional and business services,96796.8
+34,New Jersey,68,"Educational services, health care, and social assistance",49607.1
+34,New Jersey,83,Government and government enterprises,52934.2
+35,New Mexico,1,All industry total,92696.5
+35,New Mexico,12,Manufacturing,4603.9
+35,New Mexico,50,"Finance, insurance, real estate, rental, and leasing",13055.9
+35,New Mexico,59,Professional and business services,10515.7
+35,New Mexico,68,"Educational services, health care, and social assistance",7095.1
+35,New Mexico,83,Government and government enterprises,20774.9
+36,New York,1,All industry total,1420141
+36,New York,12,Manufacturing,62970.8
+36,New York,50,"Finance, insurance, real estate, rental, and leasing",433952.3
+36,New York,59,Professional and business services,201873.3
+36,New York,68,"Educational services, health care, and social assistance",135326.3
+36,New York,83,Government and government enterprises,147210.9
+37,North Carolina,1,All industry total,499517.5
+37,North Carolina,12,Manufacturing,85191.6
+37,North Carolina,50,"Finance, insurance, real estate, rental, and leasing",94568.2
+37,North Carolina,59,Professional and business services,68293.4
+37,North Carolina,68,"Educational services, health care, and social assistance",39584.1
+37,North Carolina,83,Government and government enterprises,64490.2
+38,North Dakota,1,All industry total,54581.1
+38,North Dakota,12,Manufacturing,3510.7
+38,North Dakota,50,"Finance, insurance, real estate, rental, and leasing",7038.3
+38,North Dakota,59,Professional and business services,2893.4
+38,North Dakota,68,"Educational services, health care, and social assistance",4221.3
+38,North Dakota,83,Government and government enterprises,5515
+39,Ohio,1,All industry total,589897.7
+39,Ohio,12,Manufacturing,100765
+39,Ohio,50,"Finance, insurance, real estate, rental, and leasing",119259.4
+39,Ohio,59,Professional and business services,73667.3
+39,Ohio,68,"Educational services, health care, and social assistance",55737.3
+39,Ohio,83,Government and government enterprises,61751.5
+40,Oklahoma,1,All industry total,190893.8
+40,Oklahoma,12,Manufacturing,17397.1
+40,Oklahoma,50,"Finance, insurance, real estate, rental, and leasing",23590.4
+40,Oklahoma,59,Professional and business services,15946.1
+40,Oklahoma,68,"Educational services, health care, and social assistance",13447.4
+40,Oklahoma,83,Government and government enterprises,27902.6
+41,Oregon,1,All industry total,212849.7
+41,Oregon,12,Manufacturing,32694.4
+41,Oregon,50,"Finance, insurance, real estate, rental, and leasing",38424
+41,Oregon,59,Professional and business services,29259.5
+41,Oregon,68,"Educational services, health care, and social assistance",20167.6
+41,Oregon,83,Government and government enterprises,26377.4
+42,Pennsylvania,1,All industry total,683773.9
+42,Pennsylvania,12,Manufacturing,90350.7
+42,Pennsylvania,50,"Finance, insurance, real estate, rental, and leasing",121805.6
+42,Pennsylvania,59,Professional and business services,95782.9
+42,Pennsylvania,68,"Educational services, health care, and social assistance",82539.4
+42,Pennsylvania,83,Government and government enterprises,63205.8
+44,Rhode Island,1,All industry total,51415.1
+44,Rhode Island,12,Manufacturing,4134.3
+44,Rhode Island,50,"Finance, insurance, real estate, rental, and leasing",12057.1
+44,Rhode Island,59,Professional and business services,7358.1
+44,Rhode Island,68,"Educational services, health care, and social assistance",6803.8
+44,Rhode Island,83,Government and government enterprises,7129.1
+45,South Carolina,1,All industry total,208480.5
+45,South Carolina,12,Manufacturing,32059.9
+45,South Carolina,50,"Finance, insurance, real estate, rental, and leasing",38777.9
+45,South Carolina,59,Professional and business services,23314.5
+45,South Carolina,68,"Educational services, health care, and social assistance",15190.1
+45,South Carolina,83,Government and government enterprises,31064.6
+46,South Dakota,1,All industry total,46682.7
+46,South Dakota,12,Manufacturing,3904.9
+46,South Dakota,50,"Finance, insurance, real estate, rental, and leasing",10703.1
+46,South Dakota,59,Professional and business services,3170.9
+46,South Dakota,68,"Educational services, health care, and social assistance",5072.6
+46,South Dakota,83,Government and government enterprises,5168.4
+47,Tennessee,1,All industry total,316325.3
+47,Tennessee,12,Manufacturing,49798.2
+47,Tennessee,50,"Finance, insurance, real estate, rental, and leasing",55301.5
+47,Tennessee,59,Professional and business services,40558.3
+47,Tennessee,68,"Educational services, health care, and social assistance",33042.8
+47,Tennessee,83,Government and government enterprises,32958.2
+48,Texas,1,All industry total,1734321.1
+48,Texas,12,Manufacturing,220546.2
+48,Texas,50,"Finance, insurance, real estate, rental, and leasing",274665
+48,Texas,59,Professional and business services,206091.7
+48,Texas,68,"Educational services, health care, and social assistance",107155.1
+48,Texas,83,Government and government enterprises,165374.6
+49,Utah,1,All industry total,171370.1
+49,Utah,12,Manufacturing,22299.1
+49,Utah,50,"Finance, insurance, real estate, rental, and leasing",33311
+49,Utah,59,Professional and business services,20904.6
+49,Utah,68,"Educational services, health care, and social assistance",11821.5
+49,Utah,83,Government and government enterprises,19339.9
+50,Vermont,1,All industry total,28648.5
+50,Vermont,12,Manufacturing,2890.7
+50,Vermont,50,"Finance, insurance, real estate, rental, and leasing",5394.4
+50,Vermont,59,Professional and business services,3274.7
+50,Vermont,68,"Educational services, health care, and social assistance",3881.7
+50,Vermont,83,Government and government enterprises,4093.5
+51,Virginia,1,All industry total,473817.5
+51,Virginia,12,Manufacturing,38681.7
+51,Virginia,50,"Finance, insurance, real estate, rental, and leasing",83601.1
+51,Virginia,59,Professional and business services,103619.1
+51,Virginia,68,"Educational services, health care, and social assistance",34192
+51,Virginia,83,Government and government enterprises,83942.7
+53,Washington,1,All industry total,532861.9
+53,Washington,12,Manufacturing,53422.5
+53,Washington,50,"Finance, insurance, real estate, rental, and leasing",80724.5
+53,Washington,59,Professional and business services,58852.2
+53,Washington,68,"Educational services, health care, and social assistance",33636.6
+53,Washington,83,Government and government enterprises,62568.2
+54,West Virginia,1,All industry total,69711.6
+54,West Virginia,12,Manufacturing,6781.5
+54,West Virginia,50,"Finance, insurance, real estate, rental, and leasing",9301.1
+54,West Virginia,59,Professional and business services,5346.6
+54,West Virginia,68,"Educational services, health care, and social assistance",7615.8
+54,West Virginia,83,Government and government enterprises,10763.3
+55,Wisconsin,1,All industry total,291715.8
+55,Wisconsin,12,Manufacturing,54114
+55,Wisconsin,50,"Finance, insurance, real estate, rental, and leasing",55397.1
+55,Wisconsin,59,Professional and business services,31421.8
+55,Wisconsin,68,"Educational services, health care, and social assistance",29005.5
+55,Wisconsin,83,Government and government enterprises,30149.2
+56,Wyoming,1,All industry total,36256.7
+56,Wyoming,12,Manufacturing,3360.5
+56,Wyoming,50,"Finance, insurance, real estate, rental, and leasing",4400.1
+56,Wyoming,59,Professional and business services,1754.5
+56,Wyoming,68,"Educational services, health care, and social assistance",1621.9
+56,Wyoming,83,Government and government enterprises,5379.4
