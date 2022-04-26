@@ -35,7 +35,7 @@ The remaining part of the paper was organized into ...
 
 \newpage
 # data
-The dataset I used in this report is the “Overall version data weighted with _LLCPWT,” which was collected by The Behavioral Risk Factor Surveillance System (@BRFSS). The Behavioral Risk Factor Surveillance System is an important foundational project supported by the Centers for Disease Control and Prevention (@CDC)’s Population Health Surveillance Branch, under the Division of Population Health at CDC’s National Center for Chronic Disease Prevention and Health Promotion. BRFSS aims to collect data on health-related risk behaviors in the United States. The target population is 18 years or older who live in their own house in the United States. Every questionnaire has 3 different modules: a core component, a standard set of questions that all states use, optional BRFSS modules that are the questions on specific topics that states elect, and  State-added questions that states select but CDC does not edit or track responses from these questions. In the 2020 annual survey, there were 401958 in 53 different states or territories responses. The Data Collection is based on Computer-Assisted Telephone Interview (CATI) systems that could provide an individual questionnaire for the interviewer and finish the procedure in 15 minutes.
+The dataset I used in this report is the “Overall version data weighted with _LLCPWT,” which was collected by The Behavioral Risk Factor Surveillance System (@BRFSS). The Behavioral Risk Factor Surveillance System is an important foundational project supported by the Centers for Disease Control and Prevention’s Population Health Surveillance Branch, under the Division of Population Health at CDC’s National Center for Chronic Disease Prevention and Health Promotion. BRFSS aims to collect data on health-related risk behaviors in the United States. The target population is 18 years or older who live in their own house in the United States. Every questionnaire has 3 different modules: a core component, a standard set of questions that all states use, optional BRFSS modules that are the questions on specific topics that states elect, and  State-added questions that states select but CDC does not edit or track responses from these questions. In the 2020 annual survey, there were 401958 in 53 different states or territories responses. The Data Collection is based on Computer-Assisted Telephone Interview (CATI) systems that could provide an individual questionnaire for the interviewer and finish the procedure in 15 minutes.
 
 ```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 #ll <- read_xpt("LLCP2020.XPT")
@@ -115,7 +115,7 @@ table1 <- data_full %>% summarise(mean = mean(X_BMI5),
 table1
 ```
 \newpage
-In total, this dataset spans 280 columns which include 17 different main aspects. After filtering the missing and invalid values, there were 332479 rows remaining and  I selected the Body Mass Index as my responsible variable. That is because BMI is defined as weight divided by the square of height. It is an indicator of overall nutritional status, and BMI is statistically highly correlated with body fat. Figure 1 reflects the distribution of the Body Mass Index. The BMI is right-skewed and single-peaked, which means most Americans have a score of BMI under 50, and concentrated around 25. Combined with Table1, the mean is about 28 and the median is 27.34. There are varied large outliers on the right tail and only 41 small outliers on the left tail, which are great facts to justify from the Figure1. Since the height and weight was collected directly from the answer of the respondent and most of the respondent would like to an inflated height and a lower weight(@BMIbias), the BMI shows could be smaller than the reality.  
+In total, this dataset spans 280 columns which include 17 different main aspects. After filtering the missing and invalid values, there were 332479 rows remaining and  I selected the Body Mass Index as my responsible variable. That is because BMI is defined as weight divided by the square of height. It is an indicator of overall nutritional status, and BMI is statistically highly correlated with body fat. Figure 1 reflects the distribution of the Body Mass Index. The BMI is right-skewed and single-peaked, which means most Americans have a score of BMI under 50, and concentrated around 25. Combined with Table1, the mean is about 28 and the median is 27.34. There are varied large outliers on the right tail and only 41 small outliers on the left tail, which are great facts to justify from the Figure1. Since the height and weight was collected directly from the answer of the respondent and most of the respondent would like to give an inflated height and a lower weight(@BMIbias), the BMI shows could be smaller than the reality.  
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 data_fact1<- data_full%>% ggplot(aes(x = SLEPTIM1)) +
 geom_histogram(bins = 30, color = "black", fill = "#1b98e0") +
@@ -327,9 +327,7 @@ print(p)
 obesity = bmi>25
  Combined two maps we can conclude that the output of health care could reduce the BMI in some ways. On the 
 
-# reference
-
-Centers for Disease Control and Prevention (CDC). Behavioral Risk Factor Surveillance System Survey Data. Atlanta, Georgia: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention, [appropriate data year or years].
-
 
 # Appendix
+
+# Reference
