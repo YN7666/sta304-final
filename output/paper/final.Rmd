@@ -1,9 +1,9 @@
 ---
-title: "American obesity and Multiple Indicators"
-author: "Vincent Yu"
-date: "4/1/2022"
+title: "American overweight and Multiple Indicators^[Code and data are available at https://github.com/YN7666/sta304-final]"
+author: "Zelong Yu"
+date: "4/27/2022"
 output: pdf_document
-abstract: "The obesity rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the obesity in American. This paper examines the correlation between multiple Physical characteristics with living habits of American and their effect on the obesity if American. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise , drinking alcohol.  By state analysis, we could understand that the regional differences exist and the percent of GDP produced by health care is inversely proportional to obesity."
+abstract: "The overweight rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the overweight in American. This paper examines the correlation between multiple Physical characteristics with living habits of American and their effect on the overweight if American. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise , drinking alcohol.  By state analysis, we understand that the BMI regional differences exist and the health spending per capita is inversely proportional to overweight."
 bibliography: ref_list_final.bib
 ---
 
@@ -15,26 +15,24 @@ library(ggplot2)
 library(readr)
 library(dplyr)
 library(kableExtra)
-library(knitr)
 library(haven)
 library(usmap)
 library(car)
 library(broom)
 library(patchwork)
 ```
-# introduction
-The obesity rate of a country is vital for society and plays such an indisputably important role in human life. The rising obesity rates in developed countries have brought continuous challenges to their policymakers. The United States of America, as one of the most powerful nations around the world, has been facing the highest obesity rate overall OECD Countries in the past decades(@OECD).Over 36.2% of population is obese in 2017. Further investigation into what causes such a high rate and how the obesity rate impacts individuals’ lives is urgent.\
-A regular daily routine, including sleep and exercise, are essential to a healthy life(@exercise). We all know that energy is counted in calories. Too many calories in but fewer calories burned will cause energy imbalance and lead to obesity. Highly active and sedentary individuals have a significant difference in their weight if we remove other factors and group them appropriately. Mental health is straightly related to one’s obesity as well. Individuals with PTSD were 5% less likely to have healthy diets(@mental). In the long run, it will destroy various body functions, resulting in the accumulation of fat in the body, thereby causing obesity. Besides, pregnancy for women and alcohol for men are also very strong relevance to the obesity rate. The recent data and analysis from the mentioned factors conducted in America remain inadequate.\ 
 
-How BMI related to obesity
 
-This paper examines...
-The remaining part of the paper was organized into ...
+# Introduction
+The overweight rate of a country is vital for society and plays such an indisputably important role in human life. The rising overweight rates in developed countries have brought continuous challenges to their policymakers. The United States of America, as one of the most powerful nations around the world, has been facing the highest overweight rate overall OECD Countries in the past decades(@OECD).Over 36.2% of population is overweight in 2017. Further investigation into what causes such a high rate and how the overweight rate impacts individuals’ lives is urgent.\
+A regular daily routine, including sleep and exercise, are essential to a healthy life(@exercise). We all know that energy is counted in calories. Too many calories in but fewer calories burned will cause energy imbalance and lead to overweight Highly active and sedentary individuals have a significant difference in their weight if we remove other factors and group them appropriately. Mental health is straightly related to one’s overweight as well. Individuals with PTSD were 5% less likely to have healthy diets(@mental). In the long run, it will destroy various body functions, resulting in the accumulation of fat in the body, thereby causing overweight Besides, pregnancy for women and alcohol for men are also very strong relevance to the overweight rate. The recent data and analysis from the mentioned factors conducted in America remain inadequate. There is also a cross-sectional study indicating that heavy drinking could cause excess body weight(@Alcohol) and the fact is that 1 gram of alcohol provides 29 kJ energy.\
+This paper examines the overweight factors all over America. The results suggest that females who drink alcohol, do not smoke, and exercise could have higher BMI. Additionally, sleeping time, age, self-rated health are three numerical factors that increase BMI. Last but not least, the West coast has a lower BMI than the East coast.
+The remaining part of the paper was organized into four major sections. In the Data section, there is the explanation of the source of the basic data, the data characteristic and exploratory data analysis. By using the multiple linear regression, I form a model to explain the factors of BMI. Other than that, two maps are used to show the BMI regional differences exist and the health spending per capita is inversely proportional to overweight. Finally, an appendix apply some supplementary results.
 
 
 
 \newpage
-# data
+# Data
 The dataset I used in this report is the “Overall version data weighted with _LLCPWT,” which was collected by The Behavioral Risk Factor Surveillance System (@BRFSS). The Behavioral Risk Factor Surveillance System is an important foundational project supported by the Centers for Disease Control and Prevention’s Population Health Surveillance Branch, under the Division of Population Health at CDC’s National Center for Chronic Disease Prevention and Health Promotion. BRFSS aims to collect data on health-related risk behaviors in the United States. The target population is 18 years or older who live in their own house in the United States. Every questionnaire has 3 different modules: a core component, a standard set of questions that all states use, optional BRFSS modules that are the questions on specific topics that states elect, and  State-added questions that states select but CDC does not edit or track responses from these questions. In the 2020 annual survey, there were 401958 in 53 different states or territories responses. The Data Collection is based on Computer-Assisted Telephone Interview (CATI) systems that could provide an individual questionnaire for the interviewer and finish the procedure in 15 minutes.
 
 ```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
@@ -44,12 +42,12 @@ The dataset I used in this report is the “Overall version data weighted with _
 amobesity <- read_csv("tmp.csv")
 amobesity
 states <- read.csv("state_births.csv")
-gdp <- read_csv("gdp.csv")
 data_full <- read.csv("datafull.csv")
 ```
-
-The dataset was processed and analyzed in
-
+```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+raw_data <- read.csv("raw_data (1).csv")
+```
+The dataset was processed and analyzed in R[@R1] and I analyzed all these using R package including: readr[@readr], tidyverse[@tidyverse], kableExtra[@kableExtra],ggplot2[@ggplot2], dplyr[@dplyr], kableExtra[@kableExtra], car[@car], patchwork[@patchwork] and broom[@broom].\
 ```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 "
 data_full <- ll %>% select (`_BMI5`,SLEPTIM1,GENHLTH,ALCDAY5,SEXVAR, `_RFSMOK3`,`_AGEG5YR`,EXERANY2,DRNKANY5, `_MENT14D`) %>% filter(!is.na(`_BMI5`) & !is.na(ALCDAY5)& !is.na(`_RFSMOK3`)& !is.na(SLEPTIM1)& !is.na(GENHLTH)& !is.na(SEXVAR) &SLEPTIM1<24 &`_MENT14D` < 9 &SLEPTIM1>1 &GENHLTH<7 & `_RFSMOK3` <3 &`_AGEG5YR`<14& EXERANY2 < 7 & DRNKANY5<7& ALCDAY5<900 & ALCDAY5 != 777) %>% 
@@ -114,7 +112,7 @@ table1 <- data_full %>% summarise(mean = mean(X_BMI5),
   kable_styling(latex_options = "HOLD_position")
 table1
 ```
-\newpage
+
 In total, this dataset spans 280 columns which include 17 different main aspects. After filtering the missing and invalid values, there were 332479 rows remaining and  I selected the Body Mass Index as my responsible variable. That is because BMI is defined as weight divided by the square of height. It is an indicator of overall nutritional status, and BMI is statistically highly correlated with body fat. Figure 1 reflects the distribution of the Body Mass Index. The BMI is right-skewed and single-peaked, which means most Americans have a score of BMI under 50, and concentrated around 25. Combined with Table1, the mean is about 28 and the median is 27.34. There are varied large outliers on the right tail and only 41 small outliers on the left tail, which are great facts to justify from the Figure1. Since the height and weight was collected directly from the answer of the respondent and most of the respondent would like to give an inflated height and a lower weight(@BMIbias), the BMI shows could be smaller than the reality.  
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 data_fact1<- data_full%>% ggplot(aes(x = SLEPTIM1)) +
@@ -212,8 +210,8 @@ For the reason to fit the best predictive model to the observed data set and the
 \newpage
 
 
-# result
-## model
+# Result
+## Model
 The model was run on 7 independent variables to explore the relationship between all factors and BMI in two groups: training group and test group.\
 
 ### Train
@@ -229,12 +227,12 @@ Table3: box-cox transformation\
 | sex          | 6.356e-03      |<2e-16 ***|
 | smoke        |-4.994e-03      |<2e-16 ***|
 | age          |4.953e-05       |<2e-16 ***|
-| exercise     | 4.514e-03      |<2e-16 ***|
+| exercise     |4.514e-03      |<2e-16 ***|
 | drinking alcohol | 2.325e-03  |<2e-16 **|
 |Multiple R-squared: 0.06829, Adjusted R-squared: 0.06826|
 I randomly select 80% responses of the total dataset to form the training dataset. After checking the residual plot, there is enough evidence that could indicate some of the assumptions are violated. So I apply the box-cox transformation to the training group. Table 3 is a general summary of the box-cox transformation. Since all the p-values are extremely small and smaller than 0.05, all of them should be significant and not rejected. This means each of them affects the BMI a lot. Unfortunately, the p-values could only explain that the data is not unusual under this model, but whether there is a causal relationship between them and BMI is not justified. Besides, the adjusted r-squared is relatively low, which means there is almost no trend, regardless of whether they are logically related. All in all, I combined it with the output of box-cox transformation, the following model is formed:\
- $$Y^{-0.5} = 1.921e^{-01} +1.539e^{-03}*SLEPTIM1^{0.66}+ -1.204e^{-02} *GENHLTH^{0.5} + 6.356e^{-03}*SEXVAR^{0.5} $$
-$$ + -4.994e^{-03} *X_RFSMOK3^{-10} + 4.953e^{-05}  *X_AGEG5YR + 4.514e^{-03}*EXERANY2^{-6}+2.325e^{-03}*DRNKANY5^{-0.5} $$
+ $$Y^{-0.5} = 1.921e^{-01} +1.539e^{-03}*SLEPTIM1^{0.66} -1.204e^{-02} *GENHLTH^{0.5} + 6.356e^{-03}*SEXVAR^{0.5} $$
+$$  -4.994e^{-03} *X_RFSMOK3^{-10} + 4.953e^{-05}  *X_AGEG5YR 4.514e^{-03}*EXERANY2^{-6}+2.325e^{-03}*DRNKANY5^{-0.5} $$
 The box-cox transformation will give a suggested change on the power of each factor. In this case, The main effect of the sleeping time is $1.539e^{-03}$, the power of the sleeping time is 0.66 representing that the BMI increases by 0.0392, the root of $1.539e^{-03}$ since BMI has a power of 0.5 when I increase 1 unit in sleeping time.
 
 \begin{center}
@@ -263,7 +261,7 @@ Table5: model reduction\
 Original|0.06826133|-1351736|-1351641|
 Reduction|0.06087429|-1349636|-1349552|
 
-In this section, I tried to add a new factor called mental health instead of drinking alcohol and smoking since those activities could be associated with psychological distress(@distress) and I hope to get a reduced model. However, the reduced model has a lower adj $R^2$ as 0.060 and a bigger AIC and BIC, relevantly speaking. In this case, the original model is kept.
+In this section, I tried to add a new factor called mental health instead of drinking alcohol and smoking since those activities could be associated with psychological distress(@distress) and I hope to get a reduced model. However, the reduced model has a lower adj $R^2$ as 0.060 and a bigger AIC and BIC, relevantly speaking. In this case, the original model is kept. Last but not least, there are 171 problematic observations in the data.
 
 ### Test
 I form the test dataset the rest 20% responses of the total dataset and apply the same steps and transformation to it. The estimates are close to the training model as below and there is no violation on residual plot. In conclusion, the final model is valid. 
@@ -279,11 +277,11 @@ Table6: box-cox transformation\
 | sex          | 6.096e-03      |<2e-16 ***|
 | smoke        |-4.869e-03      |<2e-16 ***|
 | age          |5.810e-05       |<2e-16 ***|
-| exercise     | 4.307e-03      |<2e-16 ***|
+| exercise     |4.307e-03      |<2e-16 ***|
 | drinking alcohol | 2.791e-03  |1.05e-07 ***|
 
 
-## map
+## Map
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 tmp <-amobesity%>% select(`_BMI5`, `_STATE`) %>% filter( !is.na(`_BMI5`))%>%mutate(`_BMI5` = `_BMI5` /100)
@@ -301,33 +299,43 @@ p$layers[[2]]$aes_params$size <- 3
 print(p)
 ```
 As we all know, there are plenty of other reasons and factors that I mentioned before that could apply to the BMI since it is a quite complicated and personal data.  Figure 5 describes the state-by-state trends of BMI in the U.S. As shown in Figure 5, the overall body mass function in the United States is around 28 as mentioned in data section. as the codebook of the dataset describe, if the BMI of one person is between 25 and 30 then the he is overweighted. So all of the average BMI is not healthy. Moreover, except for the average 26 BMI in Colorado, all the other states have at least 27 BMI. Among them, the overall BMI in the western states of the United States was smaller, with WA,OR, ID, CA, NV, UT, CO, AZ, NM, MT and WY with an average around 27.5. On the other hand, the middle and eastern states saw a greater BMI average around 28.5 where Mississippi has BMI over 29.4. \
-Since obesity could be a serious problem for every state, the government does put a lot of its Budget on it. The second map, fig.6 shows the percent of the output of "Educational services, health care, and social assistance" in the total GDP in each states. As shown in Figure 6, the output of health care in the United States is around 8%. Most of the states has an output of health care under 10% where Wyoming has lowest one about 4.47, and Vermont has the highest one as 13.54.
+\newpage
+Since overweight could be a serious problem for every state, the government does put a lot of its Budget on it. The second map, fig.6 shows the health spending per capita in each states. As shown in Figure 6, the health spending per capita in the United States is around 10k,where Utah has lowest one about 7776.6 dollar per capita, and D.C has the highest one as 15527.2 dollar per capita.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-gdpdata1<- gdp %>% filter(Description == "Educational services, health care, and social assistance") %>% group_by(GeoFips) %>% top_n(1, X2020)
-gdpdata2<- gdp %>% filter(Description == "All industry total")
-gdpdata <- merge(gdpdata1,gdpdata2,by=c("GeoFips"))
-gdpdata <- gdpdata%>% mutate(diff = 100 * X2020.x/X2020.y)%>% filter(GeoFips != 0)
-```
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-tmp <-gdpdata%>% select(GeoFips,diff) 
-colnames(tmp) <- c("state_num", "gdp")
-state_obes <- merge(tmp,states,by=c("state_num"))
-p <- plot_usmap(data = state_obes, values = "gdp", color = "red", labels=TRUE) + 
+colnames(raw_data) <- c("state_num", "Health Spending")
+state_obes <- merge(raw_data,states,by=c("state_num"))
+p <- plot_usmap(data = state_obes, values = "Health Spending", color = "red", labels=TRUE) + 
   scale_fill_continuous(low = "white", high = "red", 
-                         name = "percent of gdp", label = scales::comma) + 
+                         name = "health spending ", label = scales::comma) + 
   theme(legend.position = "right") + 
   theme(panel.background = element_rect(colour = "black")) + 
-  labs(title = "Fig.6: Educational services, health care, and social assistance contributes to GDP")
+  labs(title = "Fig.6: health spending per capita in each states")
 p$layers[[2]]$aes_params$size <- 3
 print(p)
 ```
+\newpage
+# Discussion
 
-# discussion
-obesity = bmi>25
- Combined two maps we can conclude that the output of health care could reduce the BMI in some ways. On the 
+Numerous observations have illustrated that all seven factors affect BMI from the results. By using multiple linear regression, drinking alcohol, being female, not smoking, and exercising are four categorical factors that increase BMI for respondents in America. It seems quite strange that exercise increases BMI, however, increased muscle does also add a little weight since more glycogen will be stored in your body. Additionally, in numerical summary, the more time a person sleeps, the higher his BMI. Age also affects BMI. As people get older, their BMI will rise as well. Being overweight will cause other general health problems, such as meningioma(@ghealth), so that it has an inverse relationship with general health. From the first map, we learn that geographical location also affects BMI. The West coast has a lower BMI than the East coast. There are various reasons for this result, such as the east coast cohorts have higher Persistent organic pollutant exposure levels as compared to the west coast cohorts(@RYLANDER2012828). In this case, splitting the map in two and reanalyzing it later is the best option. Combining the two maps in the result, we can conclude that health spending per capita could reduce the BMI in some ways. On the west coast, the average BMI is low with lower health spending. Other than that, the states in the east-north of America invest more in citizens' personal health. This causes their BMI to be lower than all the states around them. \
 
+ 
+## Weakness
+From the methodology, I have already generated 171 problematic observations from Leverage Point, Outlier and Cook's Distance in the data. However, the original data has 200000 observations, and 171 is an extremely small minority, relatively speaking. Therefore, for the reason of integrity and authenticity of the data, I kept all of them, which may cause some offset in the model. When generating the new variable, "Age", the random sampling is applied, which will cause some limitations on the actual age of the respondent. Last but not least, respondents could intentionally modify the weight and height will also cause some problems on accuracy.\
 
+ 
+
+## Future work
+In order to make the report better and the research data more accurate and comprehensive, searching and collecting more data by methods other than the survey is necessary. For example, measuring the height and weight rather than survey will reduce bias. I hope to look into the exercise type of each respondent and a real age for each respondent in order to fit a better model.
+
+\newpage
 # Appendix
+the numbering of 171 problematic observations in the data.\
+![](WeChat Screenshot_20220426114210.png){#id .class height=70%}
+
+\newpage
+the residual plot after box-cox transform is showed below. This means the final model does not violate and assumption since the points are randomly assigned on both sides of res = 0.\
+![](WeChat Screenshot_20220426134704.png){#id .class height=70%}
+
 
 # Reference
