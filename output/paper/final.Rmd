@@ -3,7 +3,7 @@ title: "American obesity and Multiple Indicators"
 author: "Vincent Yu"
 date: "4/1/2022"
 output: pdf_document
-abstract: "The obesity rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the obesity rate of American. The reason..., The effect of obesity..."
+abstract: "The obesity rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the obesity in American. This paper examines the correlation between multiple Physical characteristics with living habits of American and their effect on the obesity if American. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise , drinking alcohol.  By state analysis, we could understand that the regional differences exist and the percent of GDP produced by health care is inversely proportional to obesity."
 bibliography: ref_list_final.bib
 ---
 
@@ -300,7 +300,7 @@ p <- plot_usmap(data = state_obes, values = "avg_OBES", color = "red", labels=TR
 p$layers[[2]]$aes_params$size <- 3
 print(p)
 ```
-As we all know, there are plenty of other reasons and factors that I mentioned before that could apply to the BMI since it is a quite complicated and personal data.  Figure 5 describes the state-by-state trends of BMI in the U.S. As shown in Figure 5, the overall body mass function in the United States is around 28 as mentioned in data section. Except for the average 26 BMI in Colorado, all the other states have at least 27 BMI. Among them, the overall BMI in the western states of the United States was smaller, with WA,OR, ID, CA, NV, UT, CO, AZ, NM, MT and WY with an average around 27.5. On the other hand, the middle and eastern states saw a greater BMI average around 28.5 where Mississippi has BMI over 29.4. \
+As we all know, there are plenty of other reasons and factors that I mentioned before that could apply to the BMI since it is a quite complicated and personal data.  Figure 5 describes the state-by-state trends of BMI in the U.S. As shown in Figure 5, the overall body mass function in the United States is around 28 as mentioned in data section. as the codebook of the dataset describe, if the BMI of one person is between 25 and 30 then the he is overweighted. So all of the average BMI is not healthy. Moreover, except for the average 26 BMI in Colorado, all the other states have at least 27 BMI. Among them, the overall BMI in the western states of the United States was smaller, with WA,OR, ID, CA, NV, UT, CO, AZ, NM, MT and WY with an average around 27.5. On the other hand, the middle and eastern states saw a greater BMI average around 28.5 where Mississippi has BMI over 29.4. \
 Since obesity could be a serious problem for every state, the government does put a lot of its Budget on it. The second map, fig.6 shows the percent of the output of "Educational services, health care, and social assistance" in the total GDP in each states. As shown in Figure 6, the output of health care in the United States is around 8%. Most of the states has an output of health care under 10% where Wyoming has lowest one about 4.47, and Vermont has the highest one as 13.54.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -324,7 +324,7 @@ print(p)
 ```
 
 # discussion
-
+obesity = bmi>25
  Combined two maps we can conclude that the output of health care could reduce the BMI in some ways. On the 
 
 # reference
