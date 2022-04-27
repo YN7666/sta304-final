@@ -1,5 +1,5 @@
 ---
-title: "American overweight and Multiple Indicators^[Code and data are available at https://github.com/YN7666/sta304-final]"
+title: "American overweight and Multiple Indicators: With Special Focus on different states ^[Code and data are available at https://github.com/YN7666/sta304-final]"
 author: "Zelong Yu"
 date: "4/27/2022"
 output: pdf_document
@@ -47,7 +47,7 @@ data_full <- read.csv("datafull.csv")
 ```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 raw_data <- read.csv("raw_data (1).csv")
 ```
-The dataset was processed and analyzed in R[@R1] and I analyzed all these using R package including: readr[@readr], tidyverse[@tidyverse], kableExtra[@kableExtra],ggplot2[@ggplot2], dplyr[@dplyr], kableExtra[@kableExtra], car[@car], patchwork[@patchwork] and broom[@broom].\
+The dataset was processed and analyzed in R[@R1] and I analyzed all these using R package including: readr[@readr], tidyverse[@tidyverse], kableExtra[@kableExtra],ggplot2[@ggplot2], dplyr[@dplyr], car[@car], patchwork[@patchwork] and broom[@broom].\
 ```{r,include=FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 "
 data_full <- ll %>% select (`_BMI5`,SLEPTIM1,GENHLTH,ALCDAY5,SEXVAR, `_RFSMOK3`,`_AGEG5YR`,EXERANY2,DRNKANY5, `_MENT14D`) %>% filter(!is.na(`_BMI5`) & !is.na(ALCDAY5)& !is.na(`_RFSMOK3`)& !is.na(SLEPTIM1)& !is.na(GENHLTH)& !is.na(SEXVAR) &SLEPTIM1<24 &`_MENT14D` < 9 &SLEPTIM1>1 &GENHLTH<7 & `_RFSMOK3` <3 &`_AGEG5YR`<14& EXERANY2 < 7 & DRNKANY5<7& ALCDAY5<900 & ALCDAY5 != 777) %>% 
@@ -300,7 +300,7 @@ print(p)
 ```
 As we all know, there are plenty of other reasons and factors that I mentioned before that could apply to the BMI since it is a quite complicated and personal data.  Figure 5 describes the state-by-state trends of BMI in the U.S. As shown in Figure 5, the overall body mass function in the United States is around 28 as mentioned in data section. as the codebook of the dataset describe, if the BMI of one person is between 25 and 30 then the he is overweighted. So all of the average BMI is not healthy. Moreover, except for the average 26 BMI in Colorado, all the other states have at least 27 BMI. Among them, the overall BMI in the western states of the United States was smaller, with WA,OR, ID, CA, NV, UT, CO, AZ, NM, MT and WY with an average around 27.5. On the other hand, the middle and eastern states saw a greater BMI average around 28.5 where Mississippi has BMI over 29.4. \
 \newpage
-Since overweight could be a serious problem for every state, the government does put a lot of its Budget on it. The second map, fig.6 shows the health spending per capita in each states. As shown in Figure 6, the health spending per capita in the United States is around 10k,where Utah has lowest one about 7776.6 dollar per capita, and D.C has the highest one as 15527.2 dollar per capita.
+Since overweight could be a serious problem for every state, the government does put a lot of its Budget on it. The second map, fig.6 shows the health spending per capita in each states. As shown in Figure 6, the health spending per capita in the United States is around 10k,where Utah has lowest one about 7776.6 dollar per capita, and D.C has the highest one as 15527.2 dollar per capita. However, the health spending per capita is related to the total government spending and it is different in each state, so the result is not accurate.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 colnames(raw_data) <- c("state_num", "Health Spending")
@@ -315,6 +315,7 @@ p$layers[[2]]$aes_params$size <- 3
 print(p)
 ```
 \newpage
+
 # Discussion
 
 Numerous observations have illustrated that all seven factors affect BMI from the results. By using multiple linear regression, drinking alcohol, being female, not smoking, and exercising are four categorical factors that increase BMI for respondents in America. It seems quite strange that exercise increases BMI, however, increased muscle does also add a little weight since more glycogen will be stored in your body. Additionally, in numerical summary, the more time a person sleeps, the higher his BMI. Age also affects BMI. As people get older, their BMI will rise as well. Being overweight will cause other general health problems, such as meningioma(@ghealth), so that it has an inverse relationship with general health. From the first map, we learn that geographical location also affects BMI. The West coast has a lower BMI than the East coast. There are various reasons for this result, such as the east coast cohorts have higher Persistent organic pollutant exposure levels as compared to the west coast cohorts(@RYLANDER2012828). In this case, splitting the map in two and reanalyzing it later is the best option. Combining the two maps in the result, we can conclude that health spending per capita could reduce the BMI in some ways. On the west coast, the average BMI is low with lower health spending. Other than that, the states in the east-north of America invest more in citizens' personal health. This causes their BMI to be lower than all the states around them. \
@@ -326,7 +327,7 @@ From the methodology, I have already generated 171 problematic observations from
  
 
 ## Future work
-In order to make the report better and the research data more accurate and comprehensive, searching and collecting more data by methods other than the survey is necessary. For example, measuring the height and weight rather than survey will reduce bias. I hope to look into the exercise type of each respondent and a real age for each respondent in order to fit a better model.
+In order to make the report better and the research data more accurate and comprehensive, searching and collecting more data by methods other than the survey is necessary. For example, measuring the height and weight rather than survey will reduce bias. I hope to look into the exercise type of each respondent and a real age for each respondent in order to fit a better model. A table with a percentage of the health spending in the total government spending would be more accurate data than only health spending.
 
 \newpage
 # Appendix
@@ -337,5 +338,221 @@ the numbering of 171 problematic observations in the data.\
 the residual plot after box-cox transform is showed below. This means the final model does not violate and assumption since the points are randomly assigned on both sides of res = 0.\
 ![](WeChat Screenshot_20220426134704.png){#id .class height=70%}
 
+## Simulation
+
+Since America current has 330 million population, I will run the Simulation 330 times.
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+set.seed(853)
+simulated_data <-
+  tibble( 
+    state_code = sample(x=c(1,
+2,
+4,
+5,
+6,
+8,
+9,
+10,
+11,
+12,
+13,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+44,
+45,
+46,
+47,
+48,
+49,
+50,
+51,
+53,
+54,
+55,
+56
+), 330,replace = TRUE),
+    BMI = 
+      runif(n = 330,
+            min = 18.5, 
+            max = 186),
+    sleeping =  sample(x=0:24, 330,replace = TRUE),
+    health =  sample(x=1:5, 330,replace = TRUE),
+    sex =  sample(x=0:1, 330,replace = TRUE),
+    smoke =  sample(x=0:1, 330,replace = TRUE),
+    age =  sample(x=18:100, 330,replace = TRUE),
+    exercise =  sample(x=0:1, 330,replace = TRUE),
+    alcohol =  sample(x=0:1, 330,replace = TRUE)
+          )
+head(simulated_data) %>% 
+  kable(caption = "summary statistic of Body Mass Index") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "HOLD_position")
+```
+For state code it is followed FIPS code. The BMI is selected from the lowest BMI ever 18.5 to highest one:186. The self rated health use the same criterion as the original survey and we know that everyday has 24 hours so sleeping time is between 0 to 24. This is strange but there does have some people is ill and need that much of sleeping time or does not need sleep at all. For sex 0 is male 1 female, smoke, exercise and alcohol 0 means does not do that and 1 means does. There is no transgender since it is not appeared in the original data.
+
+\newpage
+
+## Enhancements
+
+
+## Motivation
+
+1. For what purpose was the dataset created?\
+The dataset was created to identify variations in health-related behaviors in america\
+2. Who created this dataset?\
+The Behavioral Risk Factor Surveillance System (BRFSS) and the Centers for Disease Control and Prevention (CDC).\
+3. What support was needed to make this dataset?\
+ CDC's Population Health Surveillance Branch, under the Division of Population Health at CDC’s National Center for Chronic Disease Prevention and Health Promotion.\
+4. Any other comments?
+No.
+
+## Composition
+
+1.What do the instances that comprise the dataset represent (for example, documents, photos, people, countries)? Are there multiple types of instances (for example, movies, users, and ratings; people and interactions between them; nodes and edges)?\
+This data set was recorded in American only.\
+2 How many instances are there in total?\
+401958\
+3.Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (for example, geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (for example, to cover a more diverse range of instances, because instances were withheld or unavailable).
+All individuals over 18 years old who is living America.\
+4.What data does each instance consist of? “Raw” data (for example, unprocessed text or images) or features? In either case, please provide a description.\
+Each instance consists general and health status of all individuals.\
+5.Is there a label or target associated with each instance? If so, please provide a description.\
+No.\
+6.Is any information missing from individual instances? If so, please provide a description, explaining why this information is missing (for example, because it was unavailable). This does not include intentionally removed information, but might include, for example, redacted text.\
+No\
+7.Are relationships between individual instances made explicit (for example, users’ movie ratings, social network links)? If so, please describe how these relationships are made explicit.\
+No.\
+8.Are there recommended data splits (for example, training, development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them.\
+Yes. total samples in data is 401958.Valid samples in data is 332479.test dataset is 66496(20%). Train dataset is265983(80%).\
+9.Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description.\
+Yes, some individuals does not response all questions.\
+10.Is the dataset self-contained, or does it link to or otherwise rely on external resources (for example, websites, tweets, other datasets)? If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (that is, including the external resources as they existed at the time the dataset was created); c) are there any restrictions (for example, licenses, fees) associated with any of the external resources that might apply to a dataset consumer? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.\
+Self-contained.\
+11.Does the dataset contain data that might be considered confidential (for example, data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)? If so, please provide a description.\
+No.\
+12.Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety? If so, please describe why.\
+No.\
+13.Does the dataset identify any sub-populations (for example, by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset.\
+Yes, age group and gender.\
+14.Is it possible to identify individuals (that is, one or more natural persons), either directly or indirectly (that is, in combination with other data) from the dataset? If so, please describe how.\
+No.\
+15.Does the dataset contain data that might be considered sensitive in any way (for example, data that reveals race or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description.\
+No.\
+16.Any other comments?\
+No.\
+
+## Collection process
+1.How was the data associated with each instance acquired? Was the data directly observable (for example, raw text, movie ratings), reported by subjects (for example, survey responses), or indirectly inferred/derived from other data (for example, part-of-speech tags, model-based guesses for age or language)? If the data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.\
+The data were gathered from the The Behavioral Risk Factor Surveillance System (BRFSS).\
+2.What mechanisms or procedures were used to collect the data (for example, hardware apparatuses or sensors, manual human curation, software programs, software APIs)? How were these mechanisms or procedures validated?
+By phone call.\
+3.If the dataset is a sample from a larger set, what was the sampling strategy (for example, deterministic, probabilistic with specific sampling probabilities)?\
+The dataset is not a sample.\
+4.Who was involved in the data collection process (for example, students, crowdworkers, contractors) and how were they compensated (for example, how much were crowdworkers paid)?\
+BRFSS.\
+5.Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (for example, recent crawl of old news articles)? If not, please describe the timeframe in which the data associated with the instances was created.\
+In 2020.\
+6.Were any ethical review processes conducted (for example, by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.\
+No.\
+7.Were the individuals in question notified about the data collection? If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself.\
+yes, they answered phone call.\
+8.Did the individuals in question consent to the collection and use of their data? If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented.
+yes, they answered phone call.\
+9.If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses? If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate).
+No.
+10.Has an analysis of the potential impact of the dataset and its use on data subjects (for example, a data protection impact analysis) been conducted? If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation.
+No.
+11.Any other comments?
+No.
+
+## Preprocessing/cleaning/labeling
+1.Was any preprocessing/cleaning/labeling of the data done (for example, discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remaining questions in this section.\
+Yes cleaning of the data was done.\
+2.Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (for example, to support unanticipated future uses)? If so, please provide a link or other access point to the “raw” data.\
+No.\
+3.Is the software that was used to preprocess/clean/label the data available? If so, please provide a link or other access point.
+R was used.\
+4.Any other comments?\
+No\
+
+## Uses
+\
+1.Has the dataset been used for any tasks already? If so, please provide a description.\
+Yes, CDC own report. (https://www.cdc.gov/brfss/annual_data/2020/pdf/2020-sdqr-508.pdf)\
+2.Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.
+No
+3.What (other) tasks could the dataset be used for?
+Heart disease.
+4.Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses? For example, is there anything that a dataset consumer might need to know to avoid uses that could result in unfair treatment of individuals or groups (for example, stereotyping, quality of service issues) or other risks or harms (for example, legal risks, financial harms)? If so, please provide a description. Is there anything a dataset consumer could do to mitigate these risks or harms?
+No.
+5.Are there tasks for which the dataset should not be used? If so, please provide a description.
+No.
+6.Any other comments?
+No.
+
+## Distribution
+
+1.Will the dataset be distributed to third parties outside of the entity (for example, company, institution, organization) on behalf of which the dataset was created? If so, please provide a description.\
+GitHub.\
+2.How will the dataset be distributed (for example, tarball on website, API, GitHub)? Does the dataset have a digital object identifier (DOI)?\
+GitHub.\
+3.When will the dataset be distributed?\
+The dataset is available now.\
+4.Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)? If so, please describe this license and/ or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions.\
+No.\
+5.Have any third parties imposed IP-based or other restrictions on the data associated with the instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions.\
+No.\
+6.Do any export controls or other regulatory restrictions apply to the dataset or to individual instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation.\
+No.\
+7.Any other comments?\
+No.\
+
+
+## Maintenance
+
+1.Who will be supporting/hosting/maintaining the dataset?\
+BRFSS\
+2.How can the owner/curator/manager of the dataset be contacted (for example, email address)?\
+subscriptions @ cdc.gov\
+3.Is there an erratum? If so, please provide a link or other access point.\
+No.\
+4.Will the dataset be updated (for example, to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to dataset consumers (for example, mailing list, GitHub)?\
+No.\
+5.If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (for example, were the individuals in question told that their data would be retained for a fixed period of time and then deleted)? If so, please describe these limits and explain how they will be enforced.\
+No.\
+6.Will older versions of the dataset continue to be supported/hosted/maintained? If so, please describe how. If not, please describe how its obsolescence will be communicated to dataset consumers.\
+No.\
+7.If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so? If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to dataset consumers? If so, please provide a description.\
+No.\
+8.Any other comments?\
+No.\
+
+\newpage
 
 # Reference
