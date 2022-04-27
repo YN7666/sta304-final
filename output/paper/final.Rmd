@@ -3,7 +3,7 @@ title: "American overweight and Multiple Indicators: With Special Focus on diffe
 author: "Zelong Yu"
 date: "4/27/2022"
 output: pdf_document
-abstract: "The overweight rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provide a valuable opportunity to analysis the overweight in American. This paper examines the correlation between multiple Physical characteristics with living habits of American and their effect on the overweight if American. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise , drinking alcohol.  By state analysis, we understand that the BMI regional differences exist and the health spending per capita is inversely proportional to overweight."
+abstract: "The overweight rate of a country is vital for society. The Behavioral Risk Factor Surveillance System from CDC provides a valuable opportunity to analyze the overweight in America. This paper examines the correlation between multiple Physical characteristics with the living habits of Americans and their effect on the overweight in America. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise, drinking alcohol. By state analysis, we understand that the BMI regional differences exist and the health spending per capita is inversely proportional to overweight."
 bibliography: ref_list_final.bib
 ---
 
@@ -340,7 +340,7 @@ the residual plot after box-cox transform is showed below. This means the final 
 
 ## Simulation
 
-Since America current has 330 million population, I will run the Simulation 330 times.
+Since America current has 330 million population, I will run the Simulation 3300000 times.
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 set.seed(853)
 simulated_data <-
@@ -396,18 +396,18 @@ simulated_data <-
 54,
 55,
 56
-), 330,replace = TRUE),
+), 3300000,replace = TRUE),
     BMI = 
-      runif(n = 330,
+      runif(n = 3300000,
             min = 18.5, 
             max = 186),
-    sleeping =  sample(x=0:24, 330,replace = TRUE),
-    health =  sample(x=1:5, 330,replace = TRUE),
-    sex =  sample(x=0:1, 330,replace = TRUE),
-    smoke =  sample(x=0:1, 330,replace = TRUE),
-    age =  sample(x=18:100, 330,replace = TRUE),
-    exercise =  sample(x=0:1, 330,replace = TRUE),
-    alcohol =  sample(x=0:1, 330,replace = TRUE)
+    sleeping =  sample(x=0:24, 3300000,replace = TRUE),
+    health =  sample(x=1:5, 3300000,replace = TRUE),
+    sex =  sample(x=0:1, 3300000,replace = TRUE),
+    smoke =  sample(x=0:1, 3300000,replace = TRUE),
+    age =  sample(x=18:100, 3300000,replace = TRUE),
+    exercise =  sample(x=0:1, 3300000,replace = TRUE),
+    alcohol =  sample(x=0:1, 3300000,replace = TRUE)
           )
 head(simulated_data) %>% 
   kable(caption = "summary statistic of Body Mass Index") %>%
