@@ -9,7 +9,7 @@ The data used in this study will be included in the "input" folder.\
 The data output from this study will be included in the "output" folder.\
 All code that is needed for simulation and reproduction is in the script.\
 In cleaning progress, only the missing and invalid values.\
-All reference are cited in "ref_list_final.bib" in the output folder.\
+All reference are cited in "ref_list_final.bib" in the output folder.
 
 # paper focus
  This paper examines the correlation between multiple Physical characteristics with the living habits of Americans and their effect on the overweight of Americans. Based on my data, I am able to conclude that sleeping time, general health, sex, smoke, age, exercise, drinking alcohol. By state analysis, we understand that the BMI regional differences exist and the health spending per capita is inversely proportional to overweight.
