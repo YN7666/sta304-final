@@ -1,10 +1,10 @@
 Author： Zelong Yu\
 Date: 27 April 2022\
 E-mail: Zelong Yu@ mail.utoronto.ca\
-Code and data are available at https://github.com/YN7666/sta304-final\
+Code and data are available at https://github.com/YN7666/sta304-final
 
 # data and reproduce and reference
-The data is collected by The Behavioral Risk Factor Surveillance System (BRFSS). You can reach the webpage from this:\ https://www.cdc.gov/brfss/annual_data/annual_2020.html\
+The data is collected by The Behavioral Risk Factor Surveillance System (BRFSS). You can reach the webpage from this:\ https://www.cdc.gov/brfss/annual_data/annual_2020.html \
 The data used in this study will be included in the "input" folder.\
 The data output from this study will be included in the "output" folder.\
 All code that is needed for simulation and reproduction is in the script.\
